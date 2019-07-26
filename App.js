@@ -12,7 +12,7 @@ export default class App extends Component {
     this.zerarPizza = this.zerarPizza.bind(this);
 
   }
- //oaksoasoka
+ 
   atualizar() {
     let s = this.state;
     
