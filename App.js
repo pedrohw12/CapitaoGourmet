@@ -60,65 +60,57 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.body}>
-        <ImageBackground
-          source={require("./images/capitaoGancho.png")}
-          style={styles.bgimage}
-        >
-          <Text style={styles.appTitulo}>Capitão Gancho</Text>
-          <View style={{ flex: 2 }}>
-            <TextInput style={styles.input} placeholder="Nome do pirata" />
-            <View style={styles.infoArea}>
-              <View style={{ flexDirection: "row" }}>
-                <View style={styles.area}>
-                  <Text style={styles.areaTitulo}>Consumido</Text>
-                  <Text style={styles.areaDado}>{this.state.consumido}</Text>
-                </View>
-                <View style={styles.area}>
-                  <Text style={styles.areaTitulo}>Status</Text>
-                  <Text style={styles.areaDado}>{this.state.status}</Text>
-                </View>
+      <ImageBackground
+        source={require("./images/capitaoGancho.png")}
+        style={styles.bgimage}
+      >
+        <Text style={styles.appTitulo}>Capitão Gancho</Text>
+        <View style={styles.body}>
+          <TextInput style={styles.input} placeholder="Nome do pirata" />
+          <View style={styles.infoArea}>
+            <View style={styles.titulos}>
+              <View style={styles.area}>
+                <Text style={styles.areaTitulo}>Consumido</Text>
+                <Text style={styles.areaDado}>{this.state.consumido}</Text>
               </View>
-            </View>
-
-            <View style={styles.btnArea}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  flex: 4
-                }}
-                >
-                <TouchableOpacity
-                  style={styles.to1}
-                  onPress={this.retirarPizza}
-                >
-                  <Text style={styles.txtBtn}>-1</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.to2} onPress={this.addPizza}>
-                  <Text style={styles.txtBtn}>+1</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.to3} onPress={this.zerarPizza}>
-                  <Text style={styles.txtBtn}>Zerar</Text>
-                </TouchableOpacity>
-              </View>
-
-              <View style={{ flex: 2, justifyContent: "flex-end" }}>
-                <Text style={styles.final}>Powered by @pedrowand</Text>
+              <View style={styles.area}>
+                <Text style={styles.areaTitulo}>Status</Text>
+                <Text style={styles.areaDado}>{this.state.status}</Text>
               </View>
             </View>
           </View>
-        </ImageBackground>
-      </View>
+
+          <View style={styles.btnArea}>
+            <View style={styles.botoes}>
+              <TouchableOpacity style={styles.to1} onPress={this.retirarPizza}>
+                <Text style={styles.txtBtn}>-1</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.to2} onPress={this.addPizza}>
+                <Text style={styles.txtBtn}>+1</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.to3} onPress={this.zerarPizza}>
+                <Text style={styles.txtBtn}>Zerar</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.rodape}>
+              <Text style={styles.final}>Powered by @pedrowand</Text>
+            </View>
+          </View>
+        </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  titulos: {
+    flexDirection: "row"
+  },
   body: {
-    flex: 1,
-    paddingTop: 0
+    flex: 2
   },
   input: {
     fontSize: 25
@@ -183,5 +175,13 @@ const styles = StyleSheet.create({
   final: {
     fontWeight: "bold",
     fontSize: 10
+  },
+  botoes: {
+  flexDirection: "row",
+  flex: 4
+  },
+  rodape: {
+    flex: 2,
+    justifyContent: "flex-end"
   }
 });
